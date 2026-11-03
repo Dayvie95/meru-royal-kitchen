@@ -1,68 +1,322 @@
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Meru Royal Kitchen</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-       <h2>Meru Royal Kitchen</h2>
-       <nav>
-        <a href="#home">Home</a>
-        <a href="#menu">Our Menu</a>
-        <a href="#contact">Contact</a>
-       </nav>
-        </header>
-        <section id="home">
-            <h1>Delicous Meals, Made with love.</h1>
-            <p>Experience the finest flavours in Meru.</p>
-            <button>Explore Our Menu</button>
-        </section>
-        <section id="menu">
-            <h2>Our Specialities</h2>
-            <div class="menu-container">
-                <div class="food-card">
-                    <img src="images/chicken.jpg" alt="Chicken chips">
-                    <h3>Chicken and Chips</h3>
-                    <p>Crispy chicken served with golden fries.</p>
-                    <h4>KSh 450</h4>
-                     <a
-                    href="https://wa.me/254712345678?text=I%20want%20to%20order%20chicken%20and%20Chips"
-                    class="order-btn">
-                    Order Now
-                </a>
-                </div>
-                <div class="food-card">
-                    <img src="images/burger.jpg" alt="Beef Burger">
-                    <h3>Beef Burger</h3>
-                    <p>juicy burger with freshh vegetables.</p>
-                    <h4>KSh 350</h4>
-                    <a
-                    href="https://wa.me/254712345678?text=I%20want%20to%20order%20burgers"
-                    class="order-btn">
-                    Order Now
-                    </a>
-                </div>
-                <div class="food-card">
-                    <img src="images/pilau.jpg" alt="Spesial Pilau">
-                    <h3>Special Pilau</h3>
-                    <p>Delicous Kenyan pilauy with rich spices.</p>
-                    <h4>Ksh 300</h4>
-                    <a
-                    href="https://wa.me/254712345678?text=I%20want%20to%20order%20pilau"
-                    class="order-btn">
-                    Order Now
-                    </a>
-                </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover delicious meals at Meru Royal Kitchen. Fresh food, great flavours and memorable dining.">
+  <title>Meru Royal Kitchen | Taste the Difference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #171b16;
+      --green: #244b32;
+      --gold: #e6ad48;
+      --cream: #faf7f0;
+      --muted: #77776e;
+      --white: #fff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); }
+    a { text-decoration: none; color: inherit; }
+    button { font: inherit; cursor: pointer; }
+
+    .topbar {
+      background: var(--dark);
+      color: #eee;
+      padding: 10px 7%;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    header {
+      background: var(--cream);
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      box-shadow: 0 2px 15px #0000000b;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .logo span { color: var(--gold); }
+
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a { font-size: 14px; font-weight: 600; }
+    nav a:hover { color: var(--green); }
+
+    .nav-button {
+      background: var(--green);
+      color: white;
+      padding: 12px 19px;
+      border-radius: 5px;
+    }
+
+    .hero {
+      min-height: 570px;
+      padding: 90px 7%;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(15,22,16,.88), rgba(15,22,16,.35)),
+        url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85') center/cover;
+    }
+
+    .hero-content { max-width: 650px; }
+    .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 12px; font-weight: 700; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1.08; margin: 20px 0; }
+    .hero p { max-width: 490px; color: #eee; line-height: 1.8; font-size: 16px; }
+
+    .primary-button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 15px 25px;
+      background: var(--gold);
+      color: var(--dark);
+      border-radius: 5px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .primary-button:hover { transform: translateY(-3px); }
+
+    section { padding: 85px 7%; }
+    .section-heading { text-align: center; max-width: 650px; margin: 0 auto 45px; }
+    .section-heading h2 { font-size: clamp(30px, 4vw, 43px); margin: 12px 0; }
+    .section-heading p { color: var(--muted); line-height: 1.7; }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: -1px;
+      background: white;
+    }
+
+    .feature { text-align: center; padding: 25px 12px; }
+    .feature .emoji { font-size: 30px; }
+    .feature h3 { margin: 12px 0 7px; font-size: 20px; }
+    .feature p { color: var(--muted); font-size: 13px; }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .food-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px #0000000b;
+      transition: .25s;
+    }
+
+    .food-card:hover { transform: translateY(-6px); }
+    .food-card img { width: 100%; height: 225px; object-fit: cover; display: block; }
+    .food-info { padding: 22px; }
+    .food-info h3 { font-size: 22px; }
+    .food-info p { color: var(--muted); font-size: 13px; line-height: 1.6; margin: 10px 0 18px; min-height: 42px; }
+    .food-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .price { color: var(--green); font-size: 20px; font-weight: 700; }
+    .order-button { background: var(--green); color: white; padding: 10px 14px; border-radius: 5px; font-size: 12px; font-weight: 700; }
+    .order-button:hover { background: var(--dark); }
+
+    .about {
+      background: var(--dark);
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about img { width: 100%; height: 390px; object-fit: cover; border-radius: 8px; }
+    .about h2 { font-size: 42px; margin: 15px 0; }
+    .about p { color: #c9c9c1; line-height: 1.9; }
+
+    .contact { text-align: center; }
+    .contact h2 { font-size: 40px; margin: 12px 0; }
+    .contact p { color: var(--muted); line-height: 1.8; }
+
+    footer { background: var(--dark); color: white; padding: 35px 7%; text-align: center; }
+    footer p { color: #aaa; font-size: 13px; margin-top: 10px; }
+
+    .whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      background: #25d366;
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 25px;
+      z-index: 30;
+      box-shadow: 0 5px 20px #0003;
+    }
+
+    @media(max-width: 760px) {
+      header { padding: 15px 5%; }
+      .logo { font-size: 18px; }
+      nav { gap: 13px; }
+      nav a { font-size: 12px; }
+      .nav-button { padding: 9px 10px; }
+      .hero { min-height: 500px; padding: 65px 6%; }
+      section { padding: 65px 6%; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .food-card img { height: 240px; }
+      .features { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; gap: 30px; }
+      .about img { height: 270px; }
+      .about h2 { font-size: 34px; }
+    }
+
+    @media(max-width: 380px) {
+      nav { gap: 8px; }
+      nav a { font-size: 11px; }
+      .nav-button { padding: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">FRESH INGREDIENTS · GREAT FLAVOUR · MEMORABLE MOMENTS</div>
+
+  <header>
+    <a class="logo" href="#home">MERU <span>ROYAL</span></a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-button">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">Welcome to Meru Royal Kitchen</div>
+        <h1>Good Food.<br>Great Memories.</h1>
+        <p>Discover delicious meals prepared with care, fresh ingredients and a passion for unforgettable flavour.</p>
+        <a href="#menu" class="primary-button">Explore Our Menu →</a>
+      </div>
+    </section>
+
+    <div class="features">
+      <div class="feature">
+        <div class="emoji">🥬</div>
+        <h3>Fresh Ingredients</h3>
+        <p>Quality ingredients in every meal.</p>
+      </div>
+      <div class="feature">
+        <div class="emoji">👨‍🍳</div>
+        <h3>Made With Care</h3>
+        <p>Meals prepared with attention to detail.</p>
+      </div>
+      <div class="feature">
+        <div class="emoji">❤️</div>
+        <h3>Great Experience</h3>
+        <p>Food and hospitality worth coming back for.</p>
+      </div>
+    </div>
+
+    <section id="menu">
+      <div class="section-heading">
+        <div class="eyebrow">Our Menu</div>
+        <h2>Something Delicious Awaits</h2>
+        <p>Explore some of our favourite meals. Choose your favourite and place an order.</p>
+      </div>
+
+      <div class="menu-grid">
+
+        <article class="food-card">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=85" alt="Fresh food bowl">
+          <div class="food-info">
+            <h3>Fresh Garden Bowl</h3>
+            <p>A colourful combination of fresh ingredients and delicious flavours.</p>
+            <div class="food-bottom">
+              <span class="price">KSh 450</span>
+              <a class="order-button" href="https://wa.me/?text=Hello%2C%20I%20would%20like%20to%20order%20Fresh%20Garden%20Bowl." target="_blank" rel="noopener">Order Now</a>
             </div>
-        </section>
-        <section id="contact"> 
-            <h2>Visit Us Today</h2>
-            <p>Meru Town, Kenya</p>
-        </section>
-        <footer>
-            <p>&copy; 2026 Meru Royal Kitchen. All rights reserved.</p>
-            <p>Fresh food, great taste, every day!</p>
-        </footer>
-            </body>
+          </div>
+        </article>
+
+        <article class="food-card">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=85" alt="Freshly prepared pizza">
+          <div class="food-info">
+            <h3>Royal Special Pizza</h3>
+            <p>A deliciously prepared pizza packed with flavour.</p>
+            <div class="food-bottom">
+              <span class="price">KSh 850</span>
+              <a class="order-button" href="https://wa.me/?text=Hello%2C%20I%20would%20like%20to%20order%20Royal%20Special%20Pizza." target="_blank" rel="noopener">Order Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=85" alt="A freshly prepared meal">
+          <div class="food-info">
+            <h3>Royal Rice Special</h3>
+            <p>A satisfying meal prepared for lovers of great food.</p>
+            <div class="food-bottom">
+              <span class="price">KSh 350</span>
+              <a class="order-button" href="https://wa.me/?text=Hello%2C%20I%20would%20like%20to%20order%20Royal%20Rice%20Special." target="_blank" rel="noopener">Order Now</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div>
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=85" alt="Delicious freshly prepared food">
+      </div>
+      <div>
+        <div class="eyebrow">Our Story</div>
+        <h2>More Than Just a Meal</h2>
+        <p>At Meru Royal Kitchen, we believe great food brings people together. Our goal is to make every dining experience enjoyable through delicious meals, quality ingredients and warm hospitality.</p>
+        <a href="#contact" class="primary-button">Get In Touch</a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="eyebrow">Get In Touch</div>
+      <h2>We'd Love to Hear From You</h2>
+      <p>Have a question or want to place an order?<br>Get in touch with us today.</p>
+      <a href="https://wa.me/?text=Hello%20Meru%20Royal%20Kitchen" class="primary-button" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      <p style="margin-top:20px;font-size:12px;">Demo business website · Replace with real business details before launch.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo" style="color:white;">MERU <span>ROYAL</span> KITCHEN</div>
+    <p>Good Food. Great Memories.</p>
+    <p>© 2026 Meru Royal Kitchen. Demo website.</p>
+  </footer>
+
+  <a href="https://wa.me/?text=Hello%20Meru%20Royal%20Kitchen" class="whatsapp" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener">☏</a>
+
+</body>
 </html>
+
